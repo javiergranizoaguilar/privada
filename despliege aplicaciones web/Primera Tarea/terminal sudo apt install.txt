@@ -1,0 +1,22 @@
+terminal
+sudo apt install docker-compose-v2 -y
+
+terminal alumnos
+
+sudo docker compose up --build
+
+(sudo docker compose up -d --build) para segundo plano
+(udo docker compose down)para cerrar segundo plano
+
+
+
+pracricas
+2.en vez de 
+PMA_HOST: dockerdb
+PMA_USER: root
+PMA_PASSWORD: pass
+
+
+PMA_HOST: db
+PMA_USER: user
+PMA_PASSWORD: pass

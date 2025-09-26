@@ -1,0 +1,9 @@
+terminal
+sudo apt install docker-compose-v2 -y
+
+terminal alumnos
+
+sudo docker compose up --build
+
+(sudo docker compose up -d --build) para segundo plano
+(sudo docker compose down)para cerrar segundo plano
