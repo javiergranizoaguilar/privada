@@ -23,18 +23,25 @@ function eje8() {
             if (comensales > 4) {
                 alert("Lo siento, no admitimos grupos de " + comensales + ", haga grupos de 4 personas como máximo e intente de nuevo")
             }
-            console.log(comensales);
         } while (comensales > 4)
-        let y = 1;
-        for (let x = 0; x < y; x++) {
-            if (x<mesas.length) {
-                if ((mesas[x] + comensales) <= 4) {
-                    mesas[x] += comensales;
-                    console.log(mesas)
+        if (comensales > 0) {
+            let y = 1;
+            for (let x = 0; x < y; x++) {
+                if (x < mesas.length) {
+                    if ((mesas[x] + comensales) <= 4) {
+                        mesas[x] += comensales;
+                        listarMesas(mesas);
+                    }
+                    else { y++; }
                 }
-                else { y++; }
+                else { alert("No quedan Mesas sueltas") }
             }
-            else{console.log("No quedan Mesas sualetas")}
         }
     } while (comensales > 0);
+}
+function listarMesas(tableList) {
+    console.log("Mesas");
+    for (let x = 0; x < tableList.length; x++) {
+        console.log((x + 1) + "º Mesa: " + tableList[x]);
+    }
 }

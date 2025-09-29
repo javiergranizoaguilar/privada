@@ -1,13 +1,36 @@
 'use strict'
 function Eje6() {
-    let list1 = [1,2,3,4,"2","d"];
-    let list2 = [1,4,"d","a"];
-    let verdad = false;
-    let listf = [];
+    let list1 = [1, 2, 2, 4, 4, "2", "ddd","f","f"];
+    let list2 = [1,88,88,5, "ddd", "a"];
+    let listend = [];
+    comprovacionD(list1, list2).forEach(l => {
+        listend.push(l);
+    })
 
-    list1.forEach(word => {
+    console.log(comprovationItself(listend));
+}
+function comprovationItself(lend) {
+    let verdad = false;
+    let listf = []
+    for (let x = 0; x < lend.length; x++) {
+        verdad=false;
+        for (let y = 0; y < lend.length; y++) {
+            if (lend[x] == lend[y] && x != y) {
+                verdad = true;
+            }
+        }
+        if (!verdad) {
+            listf.push(lend[x]);
+        }
+    }
+    return listf;
+}
+function comprovacionD(l1, l2) {
+    let verdad = false;
+    let listf = []
+    l1.forEach(word => {
         verdad = false
-        list2.forEach(colord => {
+        l2.forEach(colord => {
             if (colord == word) {
                 verdad = true;
             }
@@ -16,9 +39,9 @@ function Eje6() {
             listf.push(word);
         }
     })
-    list2.forEach(word => {
+    l2.forEach(word => {
         verdad = false
-        list1.forEach(colord => {
+        l1.forEach(colord => {
             if (colord == word) {
                 verdad = true;
             }
@@ -27,5 +50,5 @@ function Eje6() {
             listf.push(word);
         }
     })
-    console.log(listf)
+    return listf;
 }

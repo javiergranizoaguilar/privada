@@ -1,14 +1,8 @@
 'use strict'
 
 function Eje2() {
-    let num = 0;
-    do {
-        num = prompt("Escriba el numero de kilometros recoridos diariamente durante esta semana");
-
-        if (num <= 0) {
-            alert("Introduzca un numero Mallor a 0");
-        }
-    } while (num <= 0);
+    let num = pedirNumero();;
+    
 
     switch (true) {
         case num <= 10:
@@ -24,5 +18,23 @@ function Eje2() {
             document.writeln("<h1>Corredor Nievel Elite<h1>");
             break;
         default: document.writeln("<h1>Tu eres un hacker</h1>")
+    }
+    function pedirNumero() {
+        let numero;
+        do {
+            numero = prompt("Introduce un número mallor a 0:");
+
+            // Convertimos a número y validamos
+            numero = parseFloat(numero);
+
+            // Verificamos si:
+            // - No es un número válido (isNaN)
+            if (isNaN(numero) || numero <= 0) {
+                alert("Por favor, introduce un número mallor a 0");
+                numero = null; // Forzamos a que siga en el bucle
+            }
+        } while (numero === null || isNaN(numero) || numero <= 0);
+
+        return numero;
     }
 }

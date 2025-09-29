@@ -4,12 +4,9 @@ function Eje41() {
     let colors = ['red', 'yellow', 'green', 'white', 'blue', 'brown', 'pink', 'black'];
     let numero;
     let colorsUsa = [];
-    do {
-        numero = prompt("Introduce el número de franjas entre 1 y 5");
-        if (numero < 1 || numero > 5) {
-            alert("Introduce un número entero entre 1 y 5");
-        }
-    } while (numero < 1 || numero > 5);
+
+    numero = pedirNumero();
+
     for (let x = 0; x < 5; x++) {
         colorsUsa.push(colors[Math.floor(Math.random() * colors.length)]);
     }
@@ -26,12 +23,7 @@ function Eje42() {
     let colors = ['red', 'yellow', 'green', 'white', 'blue', 'brown', 'pink', 'black'];
     let numero;
     let colorsUsa = [];
-    do {
-        numero = prompt("Introduce el número de franjas entre 1 y 5");
-        if (numero < 1 || numero > 5) {
-            alert("Introduce un número entero entre 1 y 5");
-        }
-    } while (numero < 1 || numero > 5);
+    numero = pedirNumero();
     for (let x = 0; x < 5; x++) {
         colorsUsa.push(colors[Math.floor(Math.random() * colors.length)]);
         for (let y = 0; y < colorsUsa.length; y++) {
@@ -56,12 +48,7 @@ function Eje43() {
     let colors = ['red', 'yellow', 'green', 'white', 'blue', 'brown', 'pink', 'black'];
     let numero;
     let colorsUsa = [];
-    do {
-        numero = prompt("Introduce el número de franjas entre 1 y 5");
-        if (numero < 1 || numero > 5) {
-            alert("Introduce un número entero entre 1 y 5");
-        }
-    } while (numero < 1 || numero > 5);
+    numero=pedirNumero();
     for (let x = 0; x < 5; x++) {
         colorsUsa.push(colors[Math.floor(Math.random() * colors.length)]);
         if (colorsUsa[x - 1] == colorsUsa[x] && x != 0) {
@@ -77,4 +64,24 @@ function Eje43() {
     }
     table += "</tr> </table>";
     document.writeln(table);
+}
+function pedirNumero() {
+    let numero;
+    do {
+        numero = prompt("Introduce un número mallor a 0:");
+
+        // Convertimos a número y validamos
+        numero = parseFloat(numero);
+
+        // Verificamos si:
+        // - No es un número válido (isNaN)
+        // - No es un número entero (numero % 1 !== 0)
+        // - Está fuera del rango 1-5
+        if (isNaN(numero) || numero < 1 || numero > 5) {
+            alert("Por favor, introduce un número entre 1 y 5 incluidos");
+            numero = null; // Forzamos a que siga en el bucle
+        }
+    } while (numero === null || isNaN(numero) || numero < 1 || numero > 5);
+
+    return numero;
 }
