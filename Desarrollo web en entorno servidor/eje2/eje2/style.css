@@ -1,0 +1,107 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: black;
+}
+
+article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 70vh;
+    min-height: 70vh;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+/* Ia para maquetado solo de aqui para abajo*/
+header {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-link, .navbar-brand {
+    color: white !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000000 !important;
+
+    margin-top: auto;
+    padding: 0 !important;
+}
+
+footer .container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+footer .text-warning {
+    color: #ffc107 !important;
+}
+
+/* Enlaces del footer */
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffc107 !important;
+    text-decoration: none;
+}
+
+/* Iconos sociales */
+.list-inline-item {
+    margin-right: 1rem;
+}
+
+.list-inline-item:last-child {
+    margin-right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    img {
+        min-height: 50vh;
+        max-height: 50vh;
+    }
+    
+    footer {
+        text-align: center;
+    }
+    
+    footer .text-md-left {
+        text-align: center !important;
+    }
+    
+    footer .text-md-right {
+        text-align: center !important;
+    }
+}
