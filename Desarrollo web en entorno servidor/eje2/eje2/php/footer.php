@@ -36,17 +36,17 @@
                 <div class="text-center text-md-right">
                     <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;">
+                            <a href="https://www.facebook.com/?locale=es_ES" class="btn-floating btn-sm text-white" style="font-size: 23px;">
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;">
+                            <a href="https://x.com/?lang=es" class="btn-floating btn-sm text-white" style="font-size: 23px;">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;">
+                            <a href="https://www.instagram.com/" class="btn-floating btn-sm text-white" style="font-size: 23px;">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </li>
@@ -56,3 +56,7 @@
         </div>
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
