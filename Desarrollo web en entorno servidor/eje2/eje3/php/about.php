@@ -1,5 +1,4 @@
-<?php include "head.php"; ?>
-<?php include "header.php";?>
+
     <article class="">
         <div class="container">
             <h1 class="main-title">Sobre Nosotros</h1>
@@ -64,4 +63,3 @@
             </div>
         </div>
     </article>
-<?php include "footer.php" ?>

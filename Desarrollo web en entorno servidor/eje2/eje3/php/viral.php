@@ -1,5 +1,4 @@
-<?php include "head.php"; ?>
-<?php include "header.php";?>
+
     <article class="">
         <div class="container">
             <h1 class="main-title">Viralización de Memes</h1>
@@ -89,4 +88,3 @@
             </div>
         </div>
     </article>
-<?php include "footer.php" ?>

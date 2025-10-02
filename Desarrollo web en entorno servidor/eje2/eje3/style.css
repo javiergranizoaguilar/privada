@@ -1,3 +1,4 @@
+
 body {
     min-height: 100vh;
     display: flex;
@@ -52,7 +53,7 @@ header {
 }
 
 .nav-link, .navbar-brand {
-    color: white !important;
+    color: white ;
 }
 
 .navbar-toggler {
@@ -152,4 +153,7 @@ footer a:hover {
     footer .text-md-right {
         text-align: center !important;
     }
+}
+.merequetenge{
+    color: red;
 }
