@@ -1,14 +1,52 @@
 'use strict'
 function main() {
     let rejilla = [];
-    
+
     rejilla = pedirrejilla();
     let g = pedirNumero(1);
-    rejilla = regeneracion(rejilla);
-    console.log(rejilla);
+    rejilla = regeneracion(rejilla, g);
+    let vidasI = recolectarvivos(rejilla);
+    console.log("Vivas: " + vidasI);
+}
+function sonArraysIguales(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i].length !== arr2[i].length) return false;
+        for (let j = 0; j < arr1[i].length; j++) {
+            if (arr1[i][j] !== arr2[i][j]) return false;
+        }
+    }
+    return true;
 }
 
-function regeneracion(rejaI) {
+function regeneracion(rejaI, g) {
+    for (let x = 0; x < g; x++) {
+        const nuevaGeneracion = regeneracionLogic(rejaI);
+
+        if (!sonArraysIguales(nuevaGeneracion, rejaI)) {
+            rejaI = nuevaGeneracion;
+            console.log("Generación " + (x + 1));
+            console.log(rejaI);
+        }
+        else {
+            console.log("✅ ESTABILIZADO - Saliendo en generación " + (x + 1));
+            break;
+        }
+    }
+    return rejaI;
+}
+function recolectarvivos(rejaI) {
+    let vidasI = 0;
+    for (let x = 0; x < rejaI.length; x++) {
+        for (let y = 0; y < rejaI.length; y++) {
+            if (rejaI[x][y] === 1) {
+                vidasI++;
+            }
+        }
+    }
+    return vidasI;
+}
+function regeneracionLogic(rejaI) {
 
     let aux1 = [];
     let aux2 = [];
@@ -24,9 +62,11 @@ function regeneracion(rejaI) {
             switch (true) {
                 case x - 1 < 0:
                     x1 = 0
+                    x2 = x + 1
                     break;
-                case x + 1 > rejaI.length:
-                    x2 = rejaI.length;
+                case x + 1 >= rejaI.length:
+                    x1 = x - 1
+                    x2 = rejaI.length - 1;
                     break;
                 default:
                     x1 = x - 1
@@ -35,25 +75,22 @@ function regeneracion(rejaI) {
             }
             switch (true) {
                 case y - 1 < 0:
-                    y1 = 0
+                    y2 = y + 1
                     break;
-                case y + 1 > rejaI.length:
-                    y2 = rejaI.length;
+                case y + 1 >= rejaI.length:
+                    y2 = rejaI.length - 1;
                     break;
                 default:
-                    y1 = y - 1
                     y2 = y + 1
                     break;
             }
-            console.log("aaaa "+x1+" "+y1+" "+vivas)
             vivas = 0;
             for (x1; x1 <= x2; x1++) {
-                for (y1; y1 <= y2; y1++) {
+                for (let y1 = y - 1 < 0 ? 0 : y - 1; y1 <= y2; y1++) {
 
                     if (rejaI[x1][y1] != rejaI[x][y]) {
-                        if (rejaI[x1][y1]=1) {
+                        if (rejaI[x1][y1] === 1) {
                             vivas++;
-                            console.log(""+x1+""+y1+""+vivas)
                         }
                     }
                 }
@@ -67,16 +104,16 @@ function regeneracion(rejaI) {
 }
 function logico(x, v) {
     switch (true) {
-        case x = 1 && v < 2:
+        case x === 1 && v < 2:
             x = 0
             break;
-        case x = 1 && v >= 2 && v <= 3:
+        case x === 1 && v >= 2 && v <= 3:
             x = 1
             break;
-        case x = 1 && v > 3:
+        case x === 1 && v > 3:
             x = 0
             break;
-        case x = 0 && v == 3:
+        case x === 0 && v == 3:
             x = 1
             break;
         default:
@@ -107,7 +144,6 @@ function pedirrejilla() {
     return rejilla;
 
 }
-
 // Función para pedir un número dentro de un rango
 function pedirNumeroRango(num1, num2) {
     let numero;
