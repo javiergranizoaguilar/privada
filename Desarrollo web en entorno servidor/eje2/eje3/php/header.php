@@ -29,7 +29,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">
+                        <a class="nav-link" aria-disabled="true">
                             <?php
                             date_default_timezone_set('Europe/Madrid');
                             echo date("G:i:s");

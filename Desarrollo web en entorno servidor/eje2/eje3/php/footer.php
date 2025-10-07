@@ -50,6 +50,11 @@
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </li>
+                        <li class="list-inline-item">
+                            <a href="https://rule34dle.vercel.app/" class="btn-floating btn-sm text-white" style="font-size: 23px;">
+                                <img src="../imagenes/Culo.webp" style="max-height: 20px; min-height:20px">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
