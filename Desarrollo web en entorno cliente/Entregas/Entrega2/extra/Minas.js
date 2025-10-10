@@ -6,7 +6,6 @@ function BuscaMinas() {
     let matrix = TableroCreation(size, minesratio);
     let matrixShow = TableroCreation(size, 0);
     matrix = vacioslogic(matrix);
-    console.table(matrix);
     pintar(matrixShow);
     console.table(matrixShow);
     play(matrix, matrixShow);
@@ -28,11 +27,10 @@ function play(matrix, matrixShow) {
         };
         console.log(JSON.stringify(partida));
     } while (verdad);
-    if (m === null) {
-        alert("Perdiste manco");
-    }
     if (ganar(matrix, matrixShow)) {
         alert("Has ganado");
+    } else {
+        alert("Perdiste manco");
     }
 }
 function ganar(matrix, matrixShow) {
@@ -258,4 +256,4 @@ function pintar(matrixShow) {
     }
     table += "</table>"
     document.writeln(table);
-}
+} 

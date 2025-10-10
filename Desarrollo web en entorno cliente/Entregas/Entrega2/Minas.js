@@ -10,27 +10,18 @@ function BuscaMinas() {
     play(matrix, matrixShow);
 }
 function play(matrix, matrixShow) {
-    let m = seleccionResult(matrix, matrixShow);
-    console.table(matrix);
-    console.table(matrixShow);
     let verdad = true;
     do {
-        if (m === null || ganar(matrix, matrixShow)) {
+        if (seleccionResult(matrix, matrixShow) === null || ganar(matrix, matrixShow)) {
             verdad = false
         }
-        else {
-            m = seleccionResult(matrix, matrixShow);
-            console.table(matrix);
-            console.table(matrixShow);
-
-        }
-
+        pintar(matrixShow);
+        console.table(matrixShow);
     } while (verdad);
-    if (m === null) {
-        alert("Perdiste manco");
-    }
     if (ganar(matrix, matrixShow)) {
         alert("Has ganado");
+    } else {
+        alert("Perdiste manco");
     }
 }
 function ganar(matrix, matrixShow) {
