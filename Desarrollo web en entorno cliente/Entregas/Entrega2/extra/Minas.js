@@ -1,4 +1,5 @@
 'use strict'
+
 function BuscaMinas() {
     let size = pedirNumero(1, "Dame el tamaño de del tablero");
     let minesratio = pedirNumeroRango(0, 100);
@@ -6,25 +7,26 @@ function BuscaMinas() {
     let matrixShow = TableroCreation(size, 0);
     matrix = vacioslogic(matrix);
     console.table(matrix);
+    pintar(matrixShow);
     console.table(matrixShow);
     play(matrix, matrixShow);
 }
 function play(matrix, matrixShow) {
-    let m = seleccionResult(matrix, matrixShow);
-    console.table(matrix);
-    console.table(matrixShow);
+    let moves = 0;
     let verdad = true;
     do {
-        if (m === null || ganar(matrix, matrixShow)) {
+        if (seleccionResult(matrix, matrixShow) === null || ganar(matrix, matrixShow)) {
             verdad = false
         }
-        else {
-            m = seleccionResult(matrix, matrixShow);
-            console.table(matrix);
-            console.table(matrixShow);
-
-        }
-
+        pintar(matrixShow);
+        console.table(matrixShow);
+        moves++;
+        let partida = {
+            tablero: matrix,
+            tablerousuario: matrixShow,
+            movimientos: moves
+        };
+        console.log(JSON.stringify(partida));
     } while (verdad);
     if (m === null) {
         alert("Perdiste manco");
@@ -244,4 +246,16 @@ function desbloqueoblancos(rejaI, matrixShow, rx, ry) {
             }
         }
     }
+}
+function pintar(matrixShow) {
+    let table = "<table border='1' style='border-collapse: collapse; width: 100%;'>";
+    for (let x = 0; x < matrixShow.length; x++) {
+        table += "<tr>"
+        for (let y = 0; y < matrixShow.length; y++) {
+            table += `<td style='height: ${100 / matrixShow.length}%; width: ${100 / matrixShow.length}%;'></td>`;
+        }
+        table += "</tr>";
+    }
+    table += "</table>"
+    document.writeln(table);
 }
