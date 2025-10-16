@@ -250,10 +250,11 @@ function pintar(matrixShow) {
     for (let x = 0; x < matrixShow.length; x++) {
         table += "<tr>"
         for (let y = 0; y < matrixShow.length; y++) {
-            table += `<td style='height: ${100 / matrixShow.length}%; width: ${100 / matrixShow.length}%;'></td>`;
+            table += `<td style='height: ${100 / matrixShow.length}%; width: ${100 / matrixShow.length}%;'> ${matrixShow[x][y]}</td>`;
         }
         table += "</tr>";
     }
     table += "</table>"
-    document.writeln(table);
+    document.getElementById("gameBoard").innerHTML = table;
+;
 } 
